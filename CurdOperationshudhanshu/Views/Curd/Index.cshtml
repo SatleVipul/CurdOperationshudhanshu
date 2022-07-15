@@ -1,0 +1,126 @@
+﻿@*@model IEnumerable<CurdOperationshudhanshu.Models.tb_CandidateMaster>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CandidateName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Skills)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Isdeleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modified)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedOn)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CandidateName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Skills)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isdeleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedOn)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+
+
+@*________________________________________________________________________*@
+@model IEnumerable<CurdOperationshudhanshu.Models.tb_CandidateMaster>
+
+
+
+<td my-3> @Html.ActionLink("Create", "Create")</td>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CandidateName</th>
+                <th>DateOfBirth</th>
+                <th>Discription</th>
+                <th>Skills</th>
+                <th>Isdeleted</th>
+                <th>Created</th>
+                <th>CreatedOn</th>
+                <th>Modified</th>
+                <th>ModifiedOn</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CandidateName</td>
+                <td>@item.DateOfBirth</td>
+                <td>@item.Discription</td>
+                <td>@item.Skills</td>
+                <td>@item.Isdeleted</td>
+                <td>@item.Created</td>
+                <td>@item.CreatedOn</td>
+                <td>@item.Modified</td>
+                <td>@item.ModifiedOn</td>
+
+                <td>@Html.ActionLink("Edit", "Edit", new { id = item.Id })|@Html.ActionLink("Delete", "Delete", new { id = item.Id })</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+

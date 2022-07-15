@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RecruitmentDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tb_CandidateMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CandidateName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="Discription" Type="varchar" MaxLength="500" />
+          <Property Name="Skills" Type="varchar" MaxLength="200" />
+          <Property Name="Isdeleted" Type="bit" />
+          <Property Name="Created" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="Modified" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <Function Name="Sp_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_editGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CandidateName" Type="varchar" Mode="In" />
+          <Parameter Name="DateOfBirth" Type="date" Mode="In" />
+          <Parameter Name="Discription" Type="varchar" Mode="In" />
+          <Parameter Name="Skills" Type="varchar" Mode="In" />
+          <Parameter Name="Isdeleted" Type="bit" Mode="In" />
+          <Parameter Name="Created" Type="int" Mode="In" />
+          <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+          <Parameter Name="Modified" Type="int" Mode="In" />
+          <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="Sp_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="CandidateName" Type="varchar" Mode="In" />
+          <Parameter Name="DateOfBirth" Type="date" Mode="In" />
+          <Parameter Name="Discription" Type="varchar" Mode="In" />
+          <Parameter Name="Skills" Type="varchar" Mode="In" />
+          <Parameter Name="Isdeleted" Type="bit" Mode="In" />
+          <Parameter Name="Modified" Type="int" Mode="In" />
+          <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="RecruitmentDbModelStoreContainer">
+          <EntitySet Name="tb_CandidateMaster" EntityType="Self.tb_CandidateMaster" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RecruitmentDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_CandidateMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CandidateName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Discription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Skills" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Isdeleted" Type="Boolean" />
+          <Property Name="Created" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Modified" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="RecruitmentDbEntities7" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_CandidateMaster" EntityType="Self.tb_CandidateMaster" />
+          <FunctionImport Name="Sp_Delete">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_editGet" ReturnType="Collection(RecruitmentDbModel.Sp_editGet_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Insert">
+            <Parameter Name="CandidateName" Mode="In" Type="String" />
+            <Parameter Name="DateOfBirth" Mode="In" Type="DateTime" />
+            <Parameter Name="Discription" Mode="In" Type="String" />
+            <Parameter Name="Skills" Mode="In" Type="String" />
+            <Parameter Name="Isdeleted" Mode="In" Type="Boolean" />
+            <Parameter Name="Created" Mode="In" Type="Int32" />
+            <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+            <Parameter Name="Modified" Mode="In" Type="Int32" />
+            <Parameter Name="ModifiedOn" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_List" ReturnType="Collection(RecruitmentDbModel.Sp_List_Result)" />
+          <FunctionImport Name="sp_Update">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="CandidateName" Mode="In" Type="String" />
+            <Parameter Name="DateOfBirth" Mode="In" Type="DateTime" />
+            <Parameter Name="Discription" Mode="In" Type="String" />
+            <Parameter Name="Skills" Mode="In" Type="String" />
+            <Parameter Name="Isdeleted" Mode="In" Type="Boolean" />
+            <Parameter Name="Modified" Mode="In" Type="Int32" />
+            <Parameter Name="ModifiedOn" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Sp_editGet_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="CandidateName" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" />
+          <Property Type="String" Name="Discription" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Skills" Nullable="true" MaxLength="200" />
+          <Property Type="Boolean" Name="Isdeleted" Nullable="true" />
+          <Property Type="Int32" Name="Created" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="Modified" Nullable="true" />
+          <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="Sp_List_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="CandidateName" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" />
+          <Property Type="String" Name="Discription" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Skills" Nullable="true" MaxLength="200" />
+          <Property Type="Boolean" Name="Isdeleted" Nullable="true" />
+          <Property Type="Int32" Name="Created" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="Modified" Nullable="true" />
+          <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RecruitmentDbModelStoreContainer" CdmEntityContainer="RecruitmentDbEntities7">
+          <EntitySetMapping Name="tb_CandidateMaster">
+            <EntityTypeMapping TypeName="RecruitmentDbModel.tb_CandidateMaster">
+              <MappingFragment StoreEntitySet="tb_CandidateMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CandidateName" ColumnName="CandidateName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Discription" ColumnName="Discription" />
+                <ScalarProperty Name="Skills" ColumnName="Skills" />
+                <ScalarProperty Name="Isdeleted" ColumnName="Isdeleted" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Sp_Delete" FunctionName="RecruitmentDbModel.Store.Sp_Delete" />
+          <FunctionImportMapping FunctionImportName="Sp_editGet" FunctionName="RecruitmentDbModel.Store.Sp_editGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RecruitmentDbModel.Sp_editGet_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CandidateName" ColumnName="CandidateName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Discription" ColumnName="Discription" />
+                <ScalarProperty Name="Skills" ColumnName="Skills" />
+                <ScalarProperty Name="Isdeleted" ColumnName="Isdeleted" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_Insert" FunctionName="RecruitmentDbModel.Store.Sp_Insert" />
+          <FunctionImportMapping FunctionImportName="Sp_List" FunctionName="RecruitmentDbModel.Store.Sp_List">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RecruitmentDbModel.Sp_List_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CandidateName" ColumnName="CandidateName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Discription" ColumnName="Discription" />
+                <ScalarProperty Name="Skills" ColumnName="Skills" />
+                <ScalarProperty Name="Isdeleted" ColumnName="Isdeleted" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Update" FunctionName="RecruitmentDbModel.Store.sp_Update" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
